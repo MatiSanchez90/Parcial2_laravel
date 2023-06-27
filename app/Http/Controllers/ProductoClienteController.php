@@ -15,7 +15,7 @@ class ProductoClienteController extends Controller
         $productos = Producto::where('is_visible', true)
         ->orderBy('id', 'desc')
         ->paginate(7);
-    return view('productos.index', [
+    return view('productos-cliente.index', [
         'productos' => $productos
     ]);
     }
@@ -23,7 +23,7 @@ class ProductoClienteController extends Controller
     public function show(Producto $producto)
     {
         return view('productos-cliente.show', [
-            'productos' => $producto
+            'producto' => $producto
         ]);
     }
 
