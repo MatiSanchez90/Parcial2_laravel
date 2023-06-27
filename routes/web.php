@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use GuzzleHttp\Middleware;
+use App\Http\Controllers\ProductoClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,11 +29,11 @@ Route:: get('categorias', [
 
 Route::group(['middleware'=> ['auth']], function(){
     Route:: get('productos-cliente',[
-        ProductoController::class, 'index'
+        ProductoClienteController::class, 'index'
     ])->name('productos-cliente.index');
     
-    Route:: get('productos',[
-        ProductoController::class, 'show'
+    Route:: get('productos-cliente/{producto}',[
+        ProductoClienteController::class, 'show'
     ])->name('productos-cliente.show');
 });
 

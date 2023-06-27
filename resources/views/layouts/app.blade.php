@@ -31,15 +31,15 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                           
+                          @if  ( Auth::user() and !Auth::user()->is_admin )
                         <a class="nav-link" href="{{route('productos-cliente.index')}}"> {{ __('Productos') }}</a>
-                        
+                        @endif
                         </li>
                         <li class="nav-item">
-                        
+                        @if ( Auth::user() and Auth::user()->is_admin )
                         <a class="nav-link" href="{{route('productos.index')}}"> {{ __('AdminOnly') }}</a>
                         </li>
-                        
+                        @endif
 
                     </ul>
 
